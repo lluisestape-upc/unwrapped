@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Unwrapped</title>
+    <script type="module" crossorigin src="./assets/main-BagAhETM.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/api-DxpAbf2a.js">
+    <link rel="stylesheet" crossorigin href="./assets/main-Aj4gJl18.css">
+  </head>
+  <body>
+    <canvas id="stage"></canvas>
+
+    <div id="overlay" class="overlay">
+      <div class="card">
+        <header class="masthead">
+          <p class="kicker">Unwrapped &middot; a song to open</p>
+          <h1 id="world-title">Unwrapped</h1>
+        </header>
+
+        <nav id="songs" class="songs" aria-label="Song"></nav>
+
+        <div id="make" class="make" hidden>
+          <button id="make-button" class="make-button" type="button">+ Make a world from your own song</button>
+          <input id="make-file" type="file" accept=".mp3,.wav,.flac,.ogg,.m4a" hidden>
+          <div id="make-progress" class="make-progress" hidden>
+            <p class="make-step"></p>
+            <div class="make-bar"><i></i></div>
+          </div>
+        </div>
+
+        <div id="modes" class="modes" role="radiogroup" aria-label="Mode">
+          <button class="mode" data-mode="discover" role="radio" aria-checked="true" aria-label="Discover">
+            <svg class="thumb" viewBox="0 0 120 76" aria-hidden="true">
+              <g class="dots">
+                <circle cx="20" cy="30" r="6" class="off" style="--i:0"/>
+                <circle cx="46" cy="60" r="6" class="off" style="--i:1"/>
+                <circle cx="76" cy="60" r="6" class="off" style="--i:2"/>
+                <circle cx="100" cy="30" r="6" class="off" style="--i:3"/>
+              </g>
+              <g class="falling">
+                <ellipse cx="60" cy="40" rx="17" ry="5" class="tabletop"/>
+              </g>
+            </svg>
+            <img class="shot" src="modes/discover.webp" alt=""
+                 onerror="this.remove()">
+            <span class="what">Discover</span>
+          </button>
+
+          <button class="mode" data-mode="play" role="radio" aria-checked="false" aria-label="Play">
+            <svg class="thumb" viewBox="0 0 120 76" aria-hidden="true">
+              <ellipse cx="60" cy="42" rx="44" ry="22" class="tabletop"/>
+              <g class="rim">
+                <circle cx="22" cy="40" r="4.5" class="on"/>
+                <circle cx="60" cy="22" r="4.5" class="on"/>
+                <circle cx="98" cy="40" r="4.5" class="on"/>
+                <circle cx="60" cy="61" r="4.5" class="on"/>
+              </g>
+              <path id="wireA" class="wire" d="M22 40 L40 33 L52 42"/>
+              <path id="wireB" class="wire" d="M98 40 L80 48"/>
+              <rect x="36" y="29" width="8" height="8" rx="4" class="puck p1"/>
+              <rect x="48" y="38" width="8" height="8" rx="4" class="puck p2"/>
+              <rect x="76" y="44" width="8" height="8" rx="4" class="puck p3"/>
+              <circle r="2" class="packet"><animateMotion dur="1.2s" repeatCount="indefinite"><mpath href="#wireA"/></animateMotion></circle>
+              <circle r="2" class="packet"><animateMotion dur="1.2s" begin="-0.6s" repeatCount="indefinite"><mpath href="#wireB"/></animateMotion></circle>
+            </svg>
+            <img class="shot" src="modes/play.webp" alt=""
+                 onerror="this.remove()">
+            <span class="what">Play</span>
+          </button>
+
+          <button class="mode" data-mode="lyrics" role="radio" aria-checked="false" aria-label="Lyrics">
+            <svg class="thumb" viewBox="0 0 120 76" aria-hidden="true">
+              <path id="lyricA" class="route" d="M60 62 Q34 18 18 40"/>
+              <path id="lyricB" class="route" d="M60 62 Q62 6 64 22"/>
+              <path id="lyricC" class="route" d="M60 62 Q92 16 102 42"/>
+              <circle cx="60" cy="62" r="5" class="on"/>
+              <path class="word w1" d="M0 -3 C-4 -8 -9 -2 0 5 C9 -2 4 -8 0 -3Z">
+                <animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#lyricA"/></animateMotion>
+              </path>
+              <rect class="word w2" x="-3.5" y="-3.5" width="7" height="7" rx="1.5">
+                <animateMotion dur="2.4s" begin="-0.8s" repeatCount="indefinite"><mpath href="#lyricB"/></animateMotion>
+              </rect>
+              <path class="word w3" d="M0 -5 L1.5 -1.5 L5 -1.5 L2.2 0.8 L3.2 4.5 L0 2.4 L-3.2 4.5 L-2.2 0.8 L-5 -1.5 L-1.5 -1.5Z">
+                <animateMotion dur="2.4s" begin="-1.6s" repeatCount="indefinite"><mpath href="#lyricC"/></animateMotion>
+              </path>
+            </svg>
+            <img class="shot" src="modes/lyrics.webp" alt=""
+                 onerror="this.remove()">
+            <span class="what">Lyrics</span>
+          </button>
+        </div>
+
+        <button id="enter" disabled>Loading…</button>
+        <p class="controls">W A S D walk &middot; mouse look &middot; F listen &middot; E take &middot; Enter inside an effect &middot; H tutorial &middot; - = mouse speed &middot; Esc let go</p>
+      </div>
+    </div>
+
+    <div id="tutorial" class="tutorial hidden" role="status" aria-live="polite">
+      <div class="tutorial-dots" aria-hidden="true"></div>
+      <p class="tutorial-text"></p>
+      <div class="tutorial-row">
+        <span class="tutorial-keys"></span>
+        <span class="tutorial-count"></span>
+        <span class="tutorial-skip"><kbd>H</kbd> skip</span>
+      </div>
+    </div>
+
+    <div id="missions" class="missions hidden" role="status" aria-live="polite">
+      <div class="missions-head">
+        <span class="missions-label">Missions</span>
+        <span class="missions-stars"></span>
+      </div>
+      <p class="missions-text"></p>
+      <div class="missions-keys"></div>
+    </div>
+
+    <div id="hud" class="hud hidden">
+      <div id="stem-readout"></div>
+      <div id="meta"></div>
+      <button id="pause" class="pause" title="Stop the song (Esc)">Stop the song</button>
+    </div>
+
+  </body>
+</html>

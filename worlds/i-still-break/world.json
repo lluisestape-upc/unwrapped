@@ -1,0 +1,582 @@
+{
+  "id": "i-still-break",
+  "title": "I Still Break",
+  "dedication": "for the kid I used to be",
+  "created": 1791101206,
+  "mix": {
+    "tempo": 76.0,
+    "tempo_raw": 152.0,
+    "beats": [
+      0.163,
+      0.998,
+      1.788,
+      2.601,
+      3.39,
+      4.18,
+      4.992,
+      5.782,
+      6.571,
+      7.384,
+      8.197,
+      8.986,
+      9.799,
+      10.588,
+      11.401,
+      12.19,
+      12.98,
+      13.769,
+      14.582,
+      15.395,
+      16.184,
+      16.997,
+      17.786,
+      18.576,
+      19.389,
+      20.178,
+      20.991,
+      21.78,
+      22.593,
+      23.382,
+      24.195,
+      24.985,
+      25.797,
+      26.587,
+      27.4,
+      28.189,
+      28.979,
+      29.791,
+      30.604,
+      31.393,
+      32.206,
+      32.996,
+      33.785,
+      34.598,
+      35.387,
+      36.2,
+      36.989,
+      37.802,
+      38.592,
+      39.404,
+      40.194,
+      40.983,
+      41.796,
+      42.609,
+      43.398,
+      44.188,
+      45.0,
+      45.79,
+      46.602,
+      47.392,
+      48.181,
+      48.994,
+      49.784,
+      50.596,
+      51.386,
+      52.198,
+      53.011,
+      53.801,
+      54.59,
+      55.403,
+      56.192,
+      57.005,
+      57.794,
+      58.607,
+      59.397,
+      60.186,
+      60.999,
+      61.788,
+      62.601,
+      63.39,
+      64.203,
+      64.993,
+      65.805,
+      66.595,
+      67.408,
+      68.197,
+      68.986,
+      69.799,
+      70.565,
+      71.401,
+      72.191,
+      72.98,
+      73.77,
+      74.582,
+      75.395,
+      76.185,
+      76.997,
+      77.787,
+      78.6,
+      79.389,
+      80.202,
+      80.991,
+      81.781,
+      82.57,
+      83.383,
+      84.196,
+      84.985,
+      85.798,
+      86.564,
+      87.377,
+      88.189,
+      88.979,
+      89.792,
+      90.604,
+      91.394,
+      92.183,
+      92.996,
+      93.785,
+      94.598,
+      95.388,
+      96.2,
+      96.99,
+      97.779,
+      98.592,
+      99.405,
+      100.194,
+      100.984,
+      101.796,
+      102.586,
+      103.398,
+      104.188,
+      105.001,
+      105.79,
+      106.58,
+      107.392,
+      108.205,
+      108.994,
+      109.807,
+      110.597,
+      111.386,
+      112.199,
+      113.012,
+      113.801,
+      114.59,
+      115.38,
+      116.193,
+      116.982,
+      117.795,
+      118.584,
+      119.397,
+      120.186,
+      120.999,
+      121.789,
+      122.578,
+      123.368,
+      124.204,
+      124.993,
+      125.806,
+      126.595,
+      127.385,
+      128.197,
+      128.987,
+      129.8,
+      130.589,
+      131.402,
+      132.191,
+      133.004,
+      133.793,
+      134.606,
+      135.396,
+      136.208,
+      136.998,
+      137.81,
+      138.6,
+      139.389,
+      140.202,
+      140.992,
+      141.804,
+      142.617,
+      143.406,
+      144.196,
+      145.009,
+      145.798,
+      146.588,
+      147.4,
+      148.19,
+      149.002,
+      149.792,
+      150.581,
+      151.394,
+      152.184,
+      152.996,
+      153.809,
+      154.598,
+      155.388,
+      156.201,
+      156.99,
+      157.803,
+      158.592,
+      159.405,
+      160.194,
+      160.984,
+      161.797,
+      162.586,
+      163.399,
+      164.188,
+      165.001,
+      165.79,
+      166.603,
+      167.393,
+      168.205,
+      168.995,
+      169.784,
+      170.597,
+      171.386,
+      172.199,
+      172.989,
+      173.778,
+      174.568,
+      175.38,
+      176.193,
+      176.982,
+      177.772,
+      178.608,
+      179.397,
+      180.187,
+      181.0,
+      181.789,
+      182.602,
+      183.391,
+      184.204,
+      184.947,
+      185.667
+    ],
+    "key": "F",
+    "duration": 191.88,
+    "brightness": 0.713
+  },
+  "environment": {
+    "provider": "procedural",
+    "sky_top": "#723f49",
+    "sky_bottom": "#79bb9a",
+    "fog_color": "#72988a",
+    "fog_density": 0.0436,
+    "ground_color": "#354444",
+    "ground_radius": 90,
+    "biome": "shore",
+    "note": "palette derived from key F at 76.0 BPM"
+  },
+  "stems": [
+    {
+      "name": "drums",
+      "audio": "stems/drums.mp3",
+      "duration": 191.88,
+      "features": {
+        "silent": false,
+        "duration": 191.88,
+        "loudness": 0.15018,
+        "peak": 0.41625,
+        "presence": 0.666,
+        "pitch_class": "F",
+        "brightness": 0.767,
+        "width": 0.873,
+        "noisiness": 0.95,
+        "density": 0.66,
+        "raw": {
+          "centroid_hz": 2544.3,
+          "bandwidth_hz": 2731.1,
+          "onsets_per_sec": 3.35
+        },
+        "density_abs": 0.419,
+        "noisiness_abs": 0.08
+      },
+      "colour": "#bba241",
+      "model": "models/drums.glb",
+      "prompt": "a colossal drum kit with cracked cymbals and a split bass drum head, built from white enamel, half collapsed, single isolated object on a plain background, soft diffuse light, nostalgic childhood memory, matte painterly textures, no text",
+      "negative_prompt": "text, watermark, people, photorealistic skin, gore, weapons, logos, background scenery",
+      "parts": {
+        "subject": "drum kit with cracked cymbals and a split bass drum head",
+        "material": "white enamel",
+        "size": "colossal",
+        "condition": "half collapsed"
+      },
+      "position": [
+        -9.244,
+        3.084,
+        5.337
+      ],
+      "radius": 10.67,
+      "scale": 1.648,
+      "ref_distance": 5.66,
+      "max_distance": 26.67
+    },
+    {
+      "name": "bass",
+      "audio": "stems/bass.mp3",
+      "duration": 191.88,
+      "features": {
+        "silent": false,
+        "duration": 191.88,
+        "loudness": 0.13812,
+        "peak": 0.23301,
+        "presence": 0.964,
+        "pitch_class": "F#",
+        "brightness": 0.185,
+        "width": 0.356,
+        "noisiness": 0.08,
+        "density": 0.95,
+        "raw": {
+          "centroid_hz": 296.7,
+          "bandwidth_hz": 580.5,
+          "onsets_per_sec": 4.14
+        },
+        "density_abs": 0.518,
+        "noisiness_abs": 0.016
+      },
+      "colour": "#70186f",
+      "model": "models/bass.glb",
+      "prompt": "a towering upright double bass leaning as if just set down, built from rusted iron, smooth and carefully repaired, single isolated object on a plain background, soft diffuse light, nostalgic childhood memory, matte painterly textures, no text",
+      "negative_prompt": "text, watermark, people, photorealistic skin, gore, weapons, logos, background scenery",
+      "parts": {
+        "subject": "upright double bass leaning as if just set down",
+        "material": "rusted iron",
+        "size": "towering",
+        "condition": "smooth and carefully repaired"
+      },
+      "position": [
+        -3.698,
+        1.047,
+        -6.405
+      ],
+      "radius": 7.4,
+      "scale": 1.027,
+      "ref_distance": 6.86,
+      "max_distance": 23.4
+    },
+    {
+      "name": "vocals",
+      "audio": "stems/vocals.mp3",
+      "duration": 191.88,
+      "features": {
+        "silent": false,
+        "duration": 191.88,
+        "loudness": 0.1006,
+        "peak": 0.28338,
+        "presence": 0.764,
+        "pitch_class": "F",
+        "brightness": 0.777,
+        "width": 0.808,
+        "noisiness": 0.66,
+        "density": 0.08,
+        "raw": {
+          "centroid_hz": 2639.8,
+          "bandwidth_hz": 2250.0,
+          "onsets_per_sec": 1.58
+        },
+        "density_abs": 0.198,
+        "noisiness_abs": 0.072
+      },
+      "colour": "#9bbc39",
+      "model": "models/vocals.glb",
+      "prompt": "a compact vintage ribbon microphone on a stand, cable coiled at its foot, built from white enamel, cracked and peeling, single isolated object on a plain background, soft diffuse light, nostalgic childhood memory, matte painterly textures, no text",
+      "negative_prompt": "text, watermark, people, photorealistic skin, gore, weapons, logos, background scenery",
+      "parts": {
+        "subject": "vintage ribbon microphone on a stand, cable coiled at its foot",
+        "material": "white enamel",
+        "size": "compact",
+        "condition": "cracked and peeling"
+      },
+      "position": [
+        8.31,
+        3.119,
+        -4.798
+      ],
+      "radius": 9.6,
+      "scale": 1.57,
+      "ref_distance": 6.06,
+      "max_distance": 25.6
+    },
+    {
+      "name": "guitar",
+      "audio": "stems/guitar.mp3",
+      "duration": 191.88,
+      "features": {
+        "silent": false,
+        "duration": 191.88,
+        "loudness": 0.08812,
+        "peak": 0.17333,
+        "presence": 0.955,
+        "pitch_class": "C#",
+        "brightness": 0.633,
+        "width": 0.638,
+        "noisiness": 0.37,
+        "density": 0.37,
+        "raw": {
+          "centroid_hz": 1551.6,
+          "bandwidth_hz": 1350.8,
+          "onsets_per_sec": 2.78
+        },
+        "density_abs": 0.347,
+        "noisiness_abs": 0.018
+      },
+      "colour": "#a94425",
+      "model": "models/guitar.glb",
+      "prompt": "an oversized acoustic guitar standing upright on its lower bout, built from weathered painted metal, lightly overgrown with ivy, single isolated object on a plain background, soft diffuse light, nostalgic childhood memory, matte painterly textures, no text",
+      "negative_prompt": "text, watermark, people, photorealistic skin, gore, weapons, logos, background scenery",
+      "parts": {
+        "subject": "acoustic guitar standing upright on its lower bout",
+        "material": "weathered painted metal",
+        "size": "oversized",
+        "condition": "lightly overgrown with ivy"
+      },
+      "position": [
+        3.747,
+        2.615,
+        6.491
+      ],
+      "radius": 7.5,
+      "scale": 1.366,
+      "ref_distance": 6.82,
+      "max_distance": 23.5
+    }
+  ],
+  "spawn": [
+    0,
+    1.7,
+    0
+  ],
+  "words": [
+    {
+      "key": "signpost",
+      "phrase": "wooden signpost with arrows",
+      "heard": [
+        "sign",
+        "way"
+      ],
+      "times": [
+        4.14,
+        26.79,
+        77.01,
+        79.63
+      ],
+      "size": 2.9,
+      "position": [
+        8.062,
+        0.15,
+        1.364
+      ],
+      "model": "models/words/signpost.glb"
+    },
+    {
+      "key": "clover",
+      "phrase": "four-leaf clover",
+      "heard": [
+        "luck"
+      ],
+      "times": [
+        20.95,
+        22.95
+      ],
+      "size": 2.431,
+      "position": [
+        2.448,
+        0.15,
+        -9.386
+      ],
+      "model": "models/words/clover.glb"
+    },
+    {
+      "key": "coins",
+      "phrase": "small pile of coins",
+      "heard": [
+        "change"
+      ],
+      "times": [
+        39.99
+      ],
+      "size": 2.1,
+      "position": [
+        -10.237,
+        0.15,
+        -3.652
+      ],
+      "model": "models/words/coins.glb"
+    },
+    {
+      "key": "frame",
+      "phrase": "empty wooden picture frame",
+      "heard": [
+        "frame"
+      ],
+      "times": [
+        49.44
+      ],
+      "size": 2.1,
+      "position": [
+        -4.944,
+        0.15,
+        10.774
+      ],
+      "model": "models/words/frame.glb"
+    },
+    {
+      "key": "cloud",
+      "phrase": "fluffy cloud",
+      "heard": [
+        "daydream"
+      ],
+      "times": [
+        86.43
+      ],
+      "size": 2.1,
+      "position": [
+        -3.769,
+        0.15,
+        -11.708
+      ],
+      "model": "models/words/cloud.glb"
+    },
+    {
+      "key": "photo",
+      "phrase": "old polaroid photograph",
+      "heard": [
+        "past"
+      ],
+      "times": [
+        88.89
+      ],
+      "size": 2.1,
+      "position": [
+        11.054,
+        0.15,
+        6.297
+      ],
+      "model": "models/words/photo.glb"
+    },
+    {
+      "key": "clock",
+      "phrase": "round alarm clock with bells",
+      "heard": [
+        "time"
+      ],
+      "times": [
+        95.73,
+        142.65
+      ],
+      "size": 2.431,
+      "position": [
+        7.685,
+        0.15,
+        -11.107
+      ],
+      "model": "models/words/clock.glb"
+    },
+    {
+      "key": "star",
+      "phrase": "five-pointed star",
+      "heard": [
+        "fame"
+      ],
+      "times": [
+        116.96
+      ],
+      "size": 2.1,
+      "position": [
+        1.886,
+        0.15,
+        13.746
+      ],
+      "model": "models/words/star.glb"
+    }
+  ]
+}
