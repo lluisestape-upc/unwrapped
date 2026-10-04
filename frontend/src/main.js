@@ -15,7 +15,9 @@ import { Table, TABLE_HEIGHT } from './table.js';
 import { Inspector } from './inspect.js';
 import { Tutorial } from './tutorial.js';
 import { Missions } from './missions.js';
-import { cacheUrl, getWorld, listWorlds, resolveWorldId } from './api.js';
+import {
+  cacheUrl, createWorld, currentMode, getStatus, getWorld, listWorlds, resolveWorldId,
+} from './api.js';
 
 const dom = {
   overlay: document.getElementById('overlay'),
@@ -54,6 +56,74 @@ async function renderChooser(currentId) {
       location.search = `?world=${encodeURIComponent(id)}`;
     });
   }
+}
+
+// What each pipeline step is called on screen, for someone who has never
+// heard of stems or Demucs.
+const STEP_WORDS = {
+  waiting: 'Waiting to start',
+  'copying source': 'Opening the song',
+  'reusing stems': 'Finding the instruments',
+  'separating stems': 'Finding the instruments (the slow part, a few minutes)',
+  'analysing audio': 'Listening to each instrument',
+  environment: 'Choosing a landscape',
+  ready: 'Almost there',
+  'shaping the models': 'Getting the models ready',
+  'listening to the words': 'Listening to the words',
+  'making the words': 'Tripo is building the words',
+  'world ready': 'Your world is ready',
+};
+
+function stepWords(step) {
+  if (step.startsWith('tripo: ')) return `Tripo is building the ${step.slice(7)}`;
+  return STEP_WORDS[step] || step;
+}
+
+/**
+ * Your own song. Only where the pipeline is running (this laptop, with the
+ * backend up): the published static site has no server to build on.
+ */
+function bindMaker() {
+  if (currentMode() !== 'api') return;
+  const root = document.getElementById('make');
+  const button = document.getElementById('make-button');
+  const input = document.getElementById('make-file');
+  const progress = document.getElementById('make-progress');
+  const step = progress.querySelector('.make-step');
+  const bar = progress.querySelector('.make-bar i');
+  root.hidden = false;
+
+  button.addEventListener('click', () => input.click());
+  input.addEventListener('change', async () => {
+    const file = input.files[0];
+    if (!file) return;
+    const title = file.name.replace(/\.[^.]+$/, '').replace(/[-_]+/g, ' ').trim();
+    button.disabled = true;
+    progress.hidden = false;
+    step.textContent = 'Sending the song';
+    let id;
+    try {
+      ({ id } = await createWorld(file, title, ''));
+    } catch (error) {
+      step.textContent = `Could not start: ${error.message}`;
+      button.disabled = false;
+      return;
+    }
+    const timer = setInterval(async () => {
+      let status;
+      try { status = await getStatus(id); } catch { return; }
+      bar.style.width = `${status.progress || 0}%`;
+      step.textContent = stepWords(status.step || '');
+      if (status.state === 'error') {
+        clearInterval(timer);
+        step.textContent = 'Something went wrong building this one. Try another song.';
+        button.disabled = false;
+      } else if (status.state === 'done' && status.step === 'world ready') {
+        clearInterval(timer);
+        setTimeout(() => { location.search = `?world=${encodeURIComponent(id)}`; }, 800);
+      }
+    }, 2000);
+  });
 }
 
 const STAND_HEIGHT = 0.15;      // metres between an instrument's feet and the ground
@@ -701,6 +771,7 @@ async function boot() {
   // Handy from the devtools console while tuning the mapping:
   //   __firstsong.mix.stems.map(s => [s.spec.name, s.level])
   await renderChooser(world.id);
+  bindMaker();
   window.__firstsong = {
     stage, mix, world, monuments, environment, interaction, trail, pad, sky,
     blind, beat, course, recorder, words, table, inspector, tutorial, tableTutorial, missions, seen,

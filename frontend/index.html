@@ -18,6 +18,15 @@
 
         <nav id="songs" class="songs" aria-label="Song"></nav>
 
+        <div id="make" class="make" hidden>
+          <button id="make-button" class="make-button" type="button">+ Make a world from your own song</button>
+          <input id="make-file" type="file" accept=".mp3,.wav,.flac,.ogg,.m4a" hidden>
+          <div id="make-progress" class="make-progress" hidden>
+            <p class="make-step"></p>
+            <div class="make-bar"><i></i></div>
+          </div>
+        </div>
+
         <div id="modes" class="modes" role="radiogroup" aria-label="Mode">
           <button class="mode" data-mode="discover" role="radio" aria-checked="true" aria-label="Discover">
             <svg class="thumb" viewBox="0 0 120 76" aria-hidden="true">

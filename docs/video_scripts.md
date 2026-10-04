@@ -12,7 +12,7 @@ inside an effect, `W/S` value, `A/D` parameter, `L` next landscape, `M` another
 mission, `H` tutorial, `T` trailer mode (hides every overlay, title in the sky
 when you look up).
 
-Placeholders: `[SONG]` is the song used in the video. Use a rights-free song or
+`[SONG]` is "I Still Break" by Parellite, the default world. Use a rights-free song or
 one of your own, not Billie Jean or Get Lucky: YouTube Content ID will flag
 those, and judges may notice.
 
@@ -60,7 +60,11 @@ Fade to black. Music continues softly under Part 3.
 `T` off. Voiceover recorded separately and laid over the capture is easier
 than talking while playing.
 
-**The gift (0:40-0:55).** Show the menu, pick the song, the three modes.
+**The gift (0:40-0:55).** Show the menu. Click "+ Make a world from your own
+song", pick the file, let the progress bar run for a few seconds ("Finding the
+instruments", "Tripo is building the drums"), then cut to the finished world.
+This needs the local backend running (`firstsong-api`), so record this part on
+the laptop, not on the published site.
 
 > "Unwrapped is a gift for a kid. You pick the song they love, and it becomes
 > a world they can take apart, to learn how music is made."

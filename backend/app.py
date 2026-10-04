@@ -8,9 +8,11 @@
     POST /api/worlds              upload audio, build in the background
     GET  /cache/{id}/...          stems and .glb files
 """
+import json
 import pathlib
 import shutil
-import json
+import subprocess
+import sys
 
 from fastapi import BackgroundTasks, FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
@@ -31,6 +33,30 @@ app.mount("/cache", StaticFiles(directory=str(config.CACHE_DIR)), name="cache")
 UPLOAD_DIR = config.CACHE_DIR / "_uploads"
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 ALLOWED = {".mp3", ".wav", ".flac", ".ogg", ".m4a"}
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+
+# After the instruments: lighter textures for the web, then the sung words as
+# objects. Both are extras: if one fails the world still opens, just without
+# words. The last status says "world ready", which is what the page waits
+# for; build_world's own "ready" only means the instruments are done.
+FINISHING = [
+    ("shaping the models", 92, "slim_models.py"),
+    ("listening to the words", 95, "transcribe_lyrics.py"),
+    ("making the words", 97, "build_words.py"),
+]
+
+
+def full_build(upload_path, title, world_id, dedication):
+    build.build_world(upload_path, title, world_id, True, "auto", None, dedication)
+    world_dir = config.CACHE_DIR / world_id
+    status = _read_json(world_dir / "status.json") or {}
+    if status.get("state") != "done":
+        return
+    for step, pct, script in FINISHING:
+        build._write_status(world_dir, "running", step, pct)
+        subprocess.run([sys.executable, str(ROOT / "scripts" / script), world_id],
+                       cwd=str(ROOT), check=False)
+    build._write_status(world_dir, "done", "world ready", 100)
 
 
 def _read_json(path: pathlib.Path) -> dict | None:
@@ -47,7 +73,9 @@ def list_worlds():
     worlds = []
     for manifest in sorted(config.CACHE_DIR.glob("*/world.json")):
         data = _read_json(manifest)
-        if data:
+        # A world with no Tripo models is a test fixture, not something to
+        # offer in the menu.
+        if data and any(stem.get("model") for stem in data.get("stems", [])):
             worlds.append({
                 "id": data["id"],
                 "title": data["title"],
@@ -96,8 +124,7 @@ async def create_world(background: BackgroundTasks,
         json.dumps({"state": "queued", "step": "waiting", "progress": 0, "error": ""}),
         encoding="utf-8")
 
-    background.add_task(build.build_world, upload_path, title, world_id,
-                        True, "auto", None, dedication)
+    background.add_task(full_build, upload_path, title, world_id, dedication)
 
     return JSONResponse({"id": world_id, "status_url": f"/api/worlds/{world_id}/status"},
                         status_code=202)

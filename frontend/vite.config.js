@@ -11,5 +11,10 @@ export default defineConfig({
       '/cache': 'http://127.0.0.1:8000',
     },
   },
-  build: { outDir: 'dist', assetsInlineLimit: 0 },
+  build: {
+    outDir: 'dist',
+    assetsInlineLimit: 0,
+    // The game, and the asset board for the submission.
+    rollupOptions: { input: { main: 'index.html', board: 'board.html' } },
+  },
 });
